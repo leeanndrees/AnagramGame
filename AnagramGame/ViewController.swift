@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var userWordField: UITextField!
     
-    static var userWord = ""
     let word = "conversations"
 
     func displayWord() {
@@ -35,21 +34,30 @@ class ViewController: UIViewController {
 //        }
 //    }
     
-    func checkUserWord() {
-        let ourLetters = getLetters(word: word)
-        let userLetters = getLetters(word: ViewController.userWord)
-        print("our letters: \(ourLetters)")
-        print("their letters: \(userLetters)")
+    func haveUserWord() -> Bool {
+        guard (userWordField.text != nil) else {
+            print("need a word")
+            return false
+        }
+        return true
     }
     
+//    func checkUserWord() {
+//        let ourLetters = getLetters(word: word)
+//        //let userLetters = getLetters(word: userWordField)
+//        print("our letters: \(ourLetters)")
+//        print("their letters: \(userLetters)")
+//    }
+    
     @IBAction func checkButton(_ sender: UIButton) {
-        checkUserWord()
+        //checkUserWord()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         displayWord()
+        print(haveUserWord())
     }
 
     override func didReceiveMemoryWarning() {
