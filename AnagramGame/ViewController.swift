@@ -30,9 +30,18 @@ class ViewController: UIViewController {
         return true
     }
     
-    func checkUserWord() -> Bool {
+    func getUserWord() -> String {
+        guard haveUserWord() else {
+            let userWord = ""
+            return userWord
+        }
+        let userWord = userWordField.text!
+        return userWord
+    }
+    
+    func checkUserWord(userWord: String) -> Bool {
         let ourLetters = getLetters(word: word)
-        let userLetters = getLetters(word: userWordField.text!)
+        let userLetters = getLetters(word: userWord)
         var isAnagram = false
         for letter in userLetters {
             if ourLetters.contains(letter) {
@@ -60,7 +69,7 @@ class ViewController: UIViewController {
     }
     
     func alertUser() {
-        let myAlert = createAlert(isAnagram: checkUserWord())
+        let myAlert = createAlert(isAnagram: checkUserWord(userWord: getUserWord()))
         let myAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         myAlert.addAction(myAction)
         
