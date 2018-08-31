@@ -45,6 +45,20 @@ class ViewController: UIViewController {
         return isAnagram
     }
     
+    func alertUser(isAnagram: Bool) -> (title: String, message: String) {
+        var title = ""
+        var message = ""
+        if isAnagram {
+            title = "Good job!"
+            message = "You got a point"
+        }
+        else {
+            title = "Nope"
+            message = "Try again"
+        }
+        return (title, message)
+    }
+    
     func playGame() {
         displayWord()
     }
