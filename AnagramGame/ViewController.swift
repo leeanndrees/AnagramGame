@@ -25,7 +25,6 @@ class ViewController: UIViewController {
     
     func haveUserWord() -> Bool {
         guard (userWordField.text != "") else {
-            print("need a word")
             return false
         }
         return true
