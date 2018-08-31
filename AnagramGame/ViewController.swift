@@ -23,17 +23,6 @@ class ViewController: UIViewController {
         return letters
     }
     
-//    func getUserWordLetters() {
-//        if let ViewController.userWord = userWordField.text {
-//            let userWordLetters = getLetters(word: userWord)
-//            print(userWordLetters)
-//        }
-//        else {
-//            print("need a word!")
-//            return
-//        }
-//    }
-    
     func haveUserWord() -> Bool {
         guard (userWordField.text != "") else {
             print("need a word")
@@ -42,15 +31,22 @@ class ViewController: UIViewController {
         return true
     }
     
-//    func checkUserWord() {
-//        let ourLetters = getLetters(word: word)
-//        //let userLetters = getLetters(word: userWordField)
-//        print("our letters: \(ourLetters)")
-//        print("their letters: \(userLetters)")
-//    }
+    func checkUserWord() {
+        let ourLetters = getLetters(word: word)
+        let userLetters = getLetters(word: userWordField.text!)
+        for letter in userLetters {
+            print(letter)
+        }
+    }
+    
+    func playGame() {
+        displayWord()
+    }
     
     @IBAction func checkButton(_ sender: UIButton) {
-        //checkUserWord()
+        if haveUserWord() {
+            checkUserWord()
+        }
     }
     
     override func viewDidLoad() {
