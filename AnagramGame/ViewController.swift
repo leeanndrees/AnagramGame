@@ -11,9 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var userWordField: UITextField!
+    
+    static var userWord = ""
+    let word = "conversations"
 
     func displayWord() {
-        let word = "conversations"
         wordLabel.text = word
     }
     
@@ -22,19 +24,26 @@ class ViewController: UIViewController {
         return letters
     }
     
-    func getUserWordLetters() {
-        if let userWord = userWordField.text {
-            let userWordLetters = getLetters(word: userWord)
-            print(userWordLetters)
-        }
-        else {
-            print("need a word!")
-            return
-        }
+//    func getUserWordLetters() {
+//        if let ViewController.userWord = userWordField.text {
+//            let userWordLetters = getLetters(word: userWord)
+//            print(userWordLetters)
+//        }
+//        else {
+//            print("need a word!")
+//            return
+//        }
+//    }
+    
+    func checkUserWord() {
+        let ourLetters = getLetters(word: word)
+        let userLetters = getLetters(word: ViewController.userWord)
+        print("our letters: \(ourLetters)")
+        print("their letters: \(userLetters)")
     }
     
     @IBAction func checkButton(_ sender: UIButton) {
-        getUserWordLetters()
+        checkUserWord()
     }
     
     override func viewDidLoad() {
