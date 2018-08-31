@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         return letters
     }
     
-    func checkUserWord() {
+    func getUserWordLetters() {
         if let userWord = userWordField.text {
             let userWordLetters = getLetters(word: userWord)
             print(userWordLetters)
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func checkButton(_ sender: UIButton) {
-        checkUserWord()
+        getUserWordLetters()
     }
     
     override func viewDidLoad() {
