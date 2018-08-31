@@ -45,18 +45,18 @@ class ViewController: UIViewController {
         return isAnagram
     }
     
-    func alertUser(isAnagram: Bool) -> (title: String, message: String) {
-        var title = ""
-        var message = ""
+    func alertUser(isAnagram: Bool) -> UIAlertController {
+        var alertTitle = ""
+        var alertMessage = ""
         if isAnagram {
-            title = "Good job!"
-            message = "You got a point"
+            alertTitle = "Good job!"
+            alertMessage = "You got a point"
         }
         else {
-            title = "Nope"
-            message = "Try again"
+            alertTitle = "Nope"
+            alertMessage = "Try again"
         }
-        return (title, message)
+        return UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
     }
     
     func playGame() {
@@ -65,7 +65,11 @@ class ViewController: UIViewController {
     
     @IBAction func checkButton(_ sender: UIButton) {
         if haveUserWord() {
-            print(checkUserWord())
+            let myAlert = alertUser(isAnagram: checkUserWord())
+            let myAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            myAlert.addAction(myAction)
+            
+            present(myAlert, animated: true, completion: nil)
         }
     }
     
