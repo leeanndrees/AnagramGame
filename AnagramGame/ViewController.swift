@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         return isAnagram
     }
     
-    func alertUser(isAnagram: Bool) -> UIAlertController {
+    func createAlert(isAnagram: Bool) -> UIAlertController {
         var alertTitle = ""
         var alertMessage = ""
         if isAnagram {
@@ -59,17 +59,21 @@ class ViewController: UIViewController {
         return UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
     }
     
+    func alertUser() {
+        let myAlert = createAlert(isAnagram: checkUserWord())
+        let myAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        myAlert.addAction(myAction)
+        
+        present(myAlert, animated: true, completion: nil)
+    }
+    
     func playGame() {
         displayWord()
     }
     
     @IBAction func checkButton(_ sender: UIButton) {
         if haveUserWord() {
-            let myAlert = alertUser(isAnagram: checkUserWord())
-            let myAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            myAlert.addAction(myAction)
-            
-            present(myAlert, animated: true, completion: nil)
+            alertUser()
         }
     }
     
