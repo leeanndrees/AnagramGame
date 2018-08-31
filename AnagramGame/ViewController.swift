@@ -30,17 +30,19 @@ class ViewController: UIViewController {
         return true
     }
     
-    func checkUserWord() {
+    func checkUserWord() -> Bool {
         let ourLetters = getLetters(word: word)
         let userLetters = getLetters(word: userWordField.text!)
+        var isAnagram = false
         for letter in userLetters {
             if ourLetters.contains(letter) {
-                continue
+                isAnagram = true
             }
             else {
-                print("not an anagram")
+                break
             }
         }
+        return isAnagram
     }
     
     func playGame() {
@@ -49,7 +51,7 @@ class ViewController: UIViewController {
     
     @IBAction func checkButton(_ sender: UIButton) {
         if haveUserWord() {
-            checkUserWord()
+            print(checkUserWord())
         }
     }
     
