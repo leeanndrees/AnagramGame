@@ -88,13 +88,13 @@ class ViewController: UIViewController {
         else {
             print("need word")
         }
+        userWordField.text = ""
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        displayWord()
-        print(haveUserWord())
+        playGame()
     }
 
     override func didReceiveMemoryWarning() {
