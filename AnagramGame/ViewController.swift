@@ -48,6 +48,7 @@ class ViewController: UIViewController {
                 isAnagram = true
             }
             else {
+                isAnagram = false
                 break
             }
         }
@@ -78,7 +79,7 @@ class ViewController: UIViewController {
     
     func playGame() {
         displayWord()
-        checkUserWord(userWord: getUserWord())
+        //checkUserWord(userWord: getUserWord())
     }
     
     @IBAction func checkButton(_ sender: UIButton) {
@@ -89,6 +90,7 @@ class ViewController: UIViewController {
             print("need word")
         }
         userWordField.text = ""
+        playGame()
     }
     
     override func viewDidLoad() {
