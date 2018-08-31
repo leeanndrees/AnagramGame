@@ -64,7 +64,7 @@ class ViewController: UIViewController {
         }
         else {
             alertTitle = "Nope"
-            alertMessage = "Try again"
+            alertMessage = "You lost a point"
         }
         return UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
     }
