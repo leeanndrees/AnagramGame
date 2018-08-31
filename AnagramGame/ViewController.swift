@@ -34,7 +34,12 @@ class ViewController: UIViewController {
         let ourLetters = getLetters(word: word)
         let userLetters = getLetters(word: userWordField.text!)
         for letter in userLetters {
-            print(letter)
+            if ourLetters.contains(letter) {
+                continue
+            }
+            else {
+                print("not an anagram")
+            }
         }
     }
     
