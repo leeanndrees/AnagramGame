@@ -17,6 +17,21 @@ class ViewController: UIViewController {
         wordLabel.text = word
     }
     
+    func getLetters(word: String) -> [Character] {
+        let letters = Array(word)
+        return letters
+    }
+    
+    func checkUserWord() {
+        if let userWord = userWordField.text {
+            let userWordLetters = getLetters(word: userWord)
+            print(userWordLetters)
+        }
+        else {
+            print("need a word!")
+            return
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
