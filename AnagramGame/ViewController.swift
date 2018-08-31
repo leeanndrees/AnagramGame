@@ -78,11 +78,15 @@ class ViewController: UIViewController {
     
     func playGame() {
         displayWord()
+        checkUserWord(userWord: getUserWord())
     }
     
     @IBAction func checkButton(_ sender: UIButton) {
         if haveUserWord() {
             alertUser()
+        }
+        else {
+            print("need word")
         }
     }
     
